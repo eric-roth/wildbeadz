@@ -1,17 +1,21 @@
 import React from "react";
 import { Typography } from "@mui/material";
+import { makeStyles } from "@mui/styles";
 
-// const useStyles = makeStyles({
-//   header: {
-//     marginTop: "5rem"
-//   }
-// });
+const useStyles = makeStyles({
+  header: {
+    marginTop: "5rem",
+    color: "red"
+  }
+});
 
 function About() {
-  //   const classes = useStyles();
+  const classes = useStyles();
   return (
     <div>
-      <Typography variant='h1'>About</Typography>
+      <Typography className={classes.header} variant='h1'>
+        About
+      </Typography>
     </div>
   );
 }

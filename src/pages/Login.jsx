@@ -1,5 +1,5 @@
 import { Typography, Link } from "@mui/material";
-import { Link as RouterLink, useNavigate } from "react-router-dom";
+import { Link as RouterLink, useNavigate, useLocation } from "react-router-dom";
 import React, { useState } from "react";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
@@ -12,7 +12,6 @@ import Container from "@mui/material/Container";
 import Alert from "@mui/material/Alert";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { useUserAuth } from "../context/AuthContext";
-import GoogleButton from "react-google-button";
 
 function Copyright(props) {
   return (
@@ -35,13 +34,14 @@ export default function Login() {
   const [error, setError] = useState();
   const { logIn } = useUserAuth();
   const navigate = useNavigate();
+  const location = useLocation();
 
   const handleSubmit = async e => {
     e.preventDefault();
     setError("");
     try {
       await logIn(email, password);
-      navigate("/");
+      navigate(location.pathname);
     } catch (err) {
       setError(err.code.slice(5).replace(/-/g, " "));
       console.log(err.code);
@@ -94,10 +94,9 @@ export default function Login() {
               id='password'
               autoComplete='current-password'
             />
-            <Button type='submit' fullWidth variant='contained' sx={{ mt: 3, mb: 2 }}>
+            <Button type='submit' size='large' fullWidth variant='contained' sx={{ mt: 3, mb: 2 }}>
               Sign In
             </Button>
-            <GoogleButton style={{ width: "100%", marginBottom: "1.4rem" }}></GoogleButton>
             <Grid container>
               <Grid item xs>
                 <Link href='#' variant='body2'>
