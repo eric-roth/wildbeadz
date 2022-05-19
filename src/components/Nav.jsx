@@ -46,7 +46,7 @@ const Nav = () => {
 
   return (
     <AppBar position='static'>
-      <Container maxWidth='xl'>
+      <Container maxWidth='l'>
         <Toolbar disableGutters>
           <Typography
             style={{ textDecoration: "none", color: "white" }}
@@ -54,10 +54,9 @@ const Nav = () => {
             noWrap
             component={RouterLink}
             to='/'
-            sx={{ mr: 2, display: { xs: "none", md: "flex" } }}>
+            sx={{ mr: 4, display: { xs: "none", md: "flex" }, ml: 2 }}>
             Wildbeadz
           </Typography>
-
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <IconButton
               size='large'

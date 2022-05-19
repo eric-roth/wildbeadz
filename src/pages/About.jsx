@@ -4,7 +4,6 @@ import { makeStyles } from "@mui/styles";
 
 const useStyles = makeStyles({
   header: {
-    marginTop: "5rem",
     color: "red"
   }
 });
